@@ -1,32 +1,32 @@
 <?php
 session_start();
-if (isset($_SESSION["co_et"])&&$_SESSION["co_et"]==1){$_SESSION["co_et"]=0;header("Location: Espace_Client_Main.php");}
-require "ConnexionDB.php";
+if (isset($_SESSION["co"])&&$_SESSION["co"]==1){$_SESSION["co"]=0;header("Location: Espace_societe.php");}
+require "ConnexionDBstage.php";
 if(isset($_POST["pwc"])){
 
-$bdd=ConnexionDB::getInstance();
-$req=$bdd->prepare("select * from etudiant where mail= :mail");
-$req->execute(["mail" => $_POST["mail"]]);
-if ($req->fetch()){
-$msgins="cette adesse possede deja un compte";
-}
-elseif ($_POST["pwc"]!=$_POST["pw"]){
-$msgins="les mots de passe ne sont pas conformes";
-}else {
-$req = $bdd->prepare("INSERT INTO `etudiant` (`etudiant_pseudo`, `mail`, `etudiant_mdp`) VALUES (:usrn, :mail, :mdp)");
-$req->execute(array("usrn"=>$_POST["usrname"],"mail" =>$_POST["mail"],"mdp"=>$_POST["pw"]));
-}
+    $bdds=ConnexionDBstage::getInstance();
+    $req=$bdds->prepare("select * from societe where mail= :mail");
+    $req->execute(["mail" => $_POST["mail"]]);
+    if ($req->fetch()){
+        $msgins="cette adesse possede deja un compte";
+    }
+    elseif ($_POST["pwc"]!=$_POST["pw"]){
+        $msgins="les mots de passe ne sont pas conformes";
+    }else {
+        $req = $bdds->prepare("INSERT INTO `societe` (`adresse`, `mail`, `societe_mdp`) VALUES (:adresse, :mail, :mdp)");
+        $req->execute(array("adresse"=>$_POST["adress"],"mail" =>$_POST["mail"],"mdp"=>$_POST["pw"]));
+    }
 }elseif(isset($_POST["pw"])){
-$bdd=ConnexionDB::getInstance();
-$req=$bdd->prepare("select * from etudiant where mail= :mail and etudiant_mdp= :psswd");
-$req->execute(array("mail" => $_POST["mail"],"psswd"=>$_POST["pw"]));
-if ($res=$req->fetch()){
-$_SESSION["co_et"]=1;
-$_SESSION["usr"]=$res["etudiant_pseudo"];
-header("location: Espace_Client_Main.php");
-}else{
-$msg="vous avez ecrit une adresse mail ou un mdp erroné";
-}
+    $bdds=ConnexionDBstage::getInstance();
+    $req=$bdds->prepare("select * from societe where mail= :mail and societe_mdp= :psswd");
+    $req->execute(array("mail" => $_POST["mail"],"psswd"=>$_POST["pw"]));
+    if ($res=$req->fetch()){
+        $_SESSION["co"]=1;
+        $_SESSION["mail"]=$res["mail"];
+        header("location: Espace_societe.php");
+    }else{
+        $msg="vous avez ecrit une adresse mail ou un mdp erroné";
+    }
 
 
 }
@@ -38,7 +38,7 @@ $msg="vous avez ecrit une adresse mail ou un mdp erroné";
     <title>Espace Client</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" href="Espace_client.css">
+    <link rel="stylesheet" href="Espace_societe_login.css">
     <link rel="stylesheet" href="Animate.css">
 </head>
 <body>
@@ -70,7 +70,7 @@ $msg="vous avez ecrit une adresse mail ou un mdp erroné";
 
 <div id="connect" class="tabcontent">
     <p> <?php if (isset($msg)){echo $msg;} ?> </p>
-    <form id="1" method="post" action="Espace_client.php">
+    <form id="1" method="post" action="Espace_societe_login.php">
         <label for="mail">Adresse mail :</label>
         <input type="email" placeholder="Adresse Mail" class="form-control" id="mail" name="mail">
         <br>
@@ -85,13 +85,13 @@ $msg="vous avez ecrit une adresse mail ou un mdp erroné";
 </div>
 <div id="sign_in" class="tabcontent">
     <p> <?php if (isset($msgins)){echo $msgins;} ?> </p>
-    <form method="post" action="Espace_client.php">
+    <form method="post" action="Espace_societe_login.php">
         <h3>Créer un compte</h3>
         <label for="mail">Adresse mail :</label>
         <input type="email" placeholder="Adresse Mail" class="form-control" id="mail1" name="mail">
         <br>
-        <label for="username">Username</label>
-        <input type="text" placeholder="Username" class="form-control" id="usrname" name="usrname">
+        <label for="adress">Adresse</label>
+        <input type="text" placeholder="Adresse" class="form-control" id="adress" name="adress">
         <br>
         <label for="pw">Mot de Passe :</label>
         <div class="password row">

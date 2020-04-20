@@ -1,0 +1,10 @@
+html,body{height: 100%; width: 100%; background: url("etudiant.jpg") no-repeat center center; background-size: cover}
+
+.container{
+    position: center;
+    padding-top: 50vh;
+    padding-left: 30vh;
+    padding-right: 10px;
+    padding-bottom: 10px;
+
+}

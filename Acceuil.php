@@ -5,9 +5,9 @@
 <head>
     <title>Acceuil</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" href="Acceuil.css">
-    <link rel="stylesheet" href="Animate.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./Acceuil.css">
+    <link rel="stylesheet" href="./Animate.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" >
@@ -17,39 +17,36 @@
                 <a class="nav-link" href="Espace_client.php">Espace Etudiant</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Espace Société</a>
+                <a class="nav-link" href="Espace_societe_login.php">Espace Société</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Espace Administrateur</a>
+                <a class="nav-link" href="Espace_Admin_Login.php">Espace Administrateur</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Consulter le Catalogue</a>
+                <a class="nav-link" href="catalogue/Catalogue.php">Consulter le Catalogue</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="/action_page.php">
+        <!--form class="form-inline my-2 my-lg-0" action="/action_page.php">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
             <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-3" type="submit">Search</button>
-        </form>
+        </form-->
     </nav>
 
 
     <div class="bg1 view">
         <div class="content1 text-white">
             <h1 style="font-family: 'Comic Sans MS'">Bienvenue sur notre site</h1>
-            <a href="#"><button class="btn btn-info btn-lg">Consulter le catalogue</button> </a>
+            <a href="catalogue/Catalogue.php"><button class="btn btn-info btn-lg">Consulter le catalogue</button> </a>
         </div>
     </div>
 
     <div class="scroll scroll_bg1">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore incidunt suscipit similique,
-            dolor corrupti cumque qui consectetur autem laborum fuga quas ipsam doloribus sequi, mollitia,
-            repellendus sapiente repudiandae labore rerum amet culpa inventore, modi non. Quo nisi veritatis vitae nam, labore fugit.
-            Inventore culpa iusto, officia exercitationem. Voluptates quibusdam odit odio incidunt consequatur,
-            consectetur aspernatur optio vitae molestias,
-            quas repellendus fugit ullam culpa, eligendi et dignissimos voluptatibus illum?
-            Molestias aliquam nostrum quasi ipsa culpa, iusto explicabo ut error,
-            consequuntur enim temporibus, adipisci tempora voluptate, id consequatur mollitia eveniet blanditiis.
-            Illo quod repellendus alias? Cum rem doloremque adipisci accusantium? Saepe, necessitatibus!
+        <h1>Qu’est-ce qu’un stage ?</h1><br><br><br><br><br><br>
+         <p> Le stage est une période temporaire de mise en situation professionnelle qui s'inscrit dans le cadre
+             d'un cursus pédagogique. C’est l’occasion de mettre
+             en pratique des connaissances acquises lors de ma formation, il peut aussi me permettre d’acquérir des
+             compétences professionnelles nouvelles que je pourrai valoriser dans mon CV ou dans un premier
+             emploi.
         </p>
     </div>
 
@@ -71,13 +68,13 @@
                     <div class="box">
                         <h3 class="text-dark">Espace Société :</h3>
                         <p>Cliquer ici pour accéder à l'espace des entreprises</p>
-                        <button class="btn btn-warning">Espace société</button>
+                        <a href="Espace_societe_login.php"><button class="btn btn-warning">Espace société</button></a>
                     </div>
                     <br>
                     <div class="box">
                         <h3 class="text-dark">Espace Administrateur :</h3>
                         <p>Cliquer ici pour accéder à l'espace admin</p>
-                        <button class="btn btn-warning">Espace admin</button>
+                        <a href="Espace_Admin_Login.php"><button class="btn btn-warning">Espace admin</button></a>
                     </div>
                     <br>
                 </div>
@@ -86,15 +83,11 @@
     </div>
 
     <div class="scroll scroll_bg2">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore incidunt suscipit similique,
-            dolor corrupti cumque qui consectetur autem laborum fuga quas ipsam doloribus sequi, mollitia,
-            repellendus sapiente repudiandae labore rerum amet culpa inventore, modi non. Quo nisi veritatis vitae nam, labore fugit.
-            Inventore culpa iusto, officia exercitationem. Voluptates quibusdam odit odio incidunt consequatur,
-            consectetur aspernatur optio vitae molestias,
-            quas repellendus fugit ullam culpa, eligendi et dignissimos voluptatibus illum?
-            Molestias aliquam nostrum quasi ipsa culpa, iusto explicabo ut error,
-            consequuntur enim temporibus, adipisci tempora voluptate, id consequatur mollitia eveniet blanditiis.
-            Illo quod repellendus alias? Cum rem doloremque adipisci accusantium? Saepe, necessitatibus!
+        <h1>Pourquoi faire un stage ?</h1><br><br><br><br><br><br><br>
+         <p>Cela permet d'avoir une idée concrète de la vie d'une entreprise (ou de tout autre organisme), de son
+            fonctionnement, d'engranger une expérience non négligeable qui me servira lorsque je chercherai un
+            emploi. De plus le stage est un moyen de modifier ou d’affiner mon orientation professionnelle car je me
+            confronte à une expérience réelle.
         </p>
     </div>
 
@@ -107,9 +100,9 @@
 
 
 
-<script src="JQuery.js"></script>
-<script src="jquery.min.js"></script>
-<script src="css3-animate-it.js"></script>
+<script src="./JQuery.js"></script>
+<script src="./jquery.min.js"></script>
+<script src="./css3-animate-it.js"></script>
 <script>
     function elementInViewport(elem)
     {

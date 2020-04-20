@@ -1,0 +1,10 @@
+html,body{height: 100%; width: 100%; background: url("administrator.png") no-repeat center center; background-size: cover}
+
+.container{
+    position: center;
+    padding-top: 60vh;
+    padding-left: 10px;
+    padding-right: 80vh;
+    padding-bottom: 10px;
+
+}
